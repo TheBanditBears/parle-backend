@@ -1,8 +1,9 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
+
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', (req: any, res: any, next: any) => {
+router.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.json({ title: 'Express' });
 });
 

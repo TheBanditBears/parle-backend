@@ -1,8 +1,8 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', (req: any, res: any, next: any) => {
+router.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.json({hello: "hello"});
 });
 
