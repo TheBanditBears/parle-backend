@@ -4,11 +4,12 @@ import cookieParser from "cookie-parser";
 
 import indexRouter from "./routes/healthCheck";
 import parleScore from "./routes/parleScore";
+import cors from "cors";
 
 
 const app = express();
 
-// app.use(logger('dev'));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
