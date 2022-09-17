@@ -30,7 +30,7 @@
     "@util": "dist/util"
   },
   "engines": {
-    "node": ">=16.13.0"
+    "node": "16.13.1"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
