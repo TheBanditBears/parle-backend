@@ -7,7 +7,6 @@ import userRepo from '@repos/user-repo';
 import User, { IUser } from '@models/user-model';
 import { pErr } from '@shared/functions';
 import { p as userPaths } from '@routes/user-router';
-import loginAgent from '../support/login-agent';
 import { ParamMissingError, UserNotFoundError, ValidatorFnError } from '@shared/errors';
 
 
@@ -79,10 +78,6 @@ describe('user-router', () => {
   // Run before all tests
   beforeAll((done) => {
     agent = supertest.agent(app);
-    loginAgent.login(agent, (cookie: string) => {
-      jwtCookie = cookie;
-      done();
-    });
   });
 
   // Test get users
