@@ -2,8 +2,8 @@ import * as http from "http";
 import express from "express";
 import cookieParser from "cookie-parser";
 
-import indexRouter from "./routes/healthCheck";
-import parleScore from "./routes/parleScore";
+import indexRouter from "./routes/healthCheck.route";
+import parleScore from "./routes/parleScore.route";
 import cors from "cors";
 
 import speech from "@google-cloud/speech";
