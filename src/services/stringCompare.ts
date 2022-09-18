@@ -1,7 +1,7 @@
 // @ts-ignore
 import stringSimilarity from "string-similarity";
 
-export default async function (original: string, better: { optimizedPrompt: string; prompt: String }) {
+export default async function (original: string, better: string){
 
     var similarity = stringSimilarity.compareTwoStrings(original, better);
 

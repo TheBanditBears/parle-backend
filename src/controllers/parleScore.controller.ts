@@ -18,9 +18,9 @@ export default async function parleScore(req: Request, res: Response, next: Next
 
     // Feed the text into co here
     const result = await runCohereEngine(await originalText);
-
+    console.log(result.optimizedPrompt);
     // Compare the results from req body and co here to score the system using the scoring service
-    const score = stringCompare(await originalText, result);
+    const score = await stringCompare(await originalText, result.optimizedPrompt);
     // Send the scores using res
     res.status(200).json(score);
 }

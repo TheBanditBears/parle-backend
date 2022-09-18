@@ -17,9 +17,9 @@ export default async function runCohereEngine(prompt: String) {
         return_likelihoods: 'NONE' 
       }); 
     // const response = await cohere.generate({ prompt: 'Once upon a time in a magical land called' } as any );
-    console.log(`Prediction: ${JSON.stringify(response.body.generations)}`);
+    console.log(`Prediction: ${JSON.stringify(response.body.generations[0])}`);
 
-    return { optimizedPrompt: response.body.generations[0].text, prompt };
+    return {optimizedPrompt: response.body.generations[0].text};
 }
 
 
