@@ -6,6 +6,50 @@ import indexRouter from "./routes/healthCheck";
 import parleScore from "./routes/parleScore";
 import cors from "cors";
 
+import speech from "@google-cloud/speech";
+import fs from "fs";
+import path from "path";
+
+/**
+ * Google Text to Speech
+ */
+
+// async function main() {
+//   const client = new speech.SpeechClient();
+
+//   // The path to the remote LINEAR16 file
+//   const gcsUri = path.resolve(__dirname, '/Users/nullpointer/code/hackathons/parle-backend/');
+//   const audioFile = fs.readFileSync('/Users/nullpointer/code/hackathons/parle-backend/src/resources/test.raw');
+//   const audioBytes = audioFile.toString('base64');
+
+//   console.log(audioBytes);
+
+//   // The audio file's encoding, sample rate in hertz, and BCP-47 language code
+//   const audio = {
+//     content: audioBytes,
+//   };
+
+//   const config = {
+//     encoding: 'LINEAR16',
+//     sampleRateHertz: 16000,
+//     languageCode: 'en-US',
+//   };
+//   const request: any = {
+//     audio: audio,
+//     config: config,
+//   };
+
+//   // Detects speech in the audio file
+//   const [response]: any = await client.recognize(request);
+//   const transcription = response.results
+//     .map((result: any) => result.alternatives[0].transcript)
+//     .join('\n');
+//   console.log(`Transcription: ${transcription}`);
+// }
+
+// (async () => {
+//   await main();
+// })()
 
 const app = express();
 
@@ -21,7 +65,7 @@ app.use(parleScore);
  * Get port from environment and store in Express.
  */
 
-const serverPort = normalizePort(process.env.PORT || '3000');
+const serverPort = normalizePort(process.env.PORT || '8080');
 app.set('port', serverPort);
 
 /**
