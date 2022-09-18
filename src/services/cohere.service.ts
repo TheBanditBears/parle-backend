@@ -1,9 +1,8 @@
 import cohere from "cohere-ai";
 
 
-export default async function runCohere() {
+export default async function runCohereEngine() {
     cohere.init(process.env.CO_HERE_API_KEY);
-    console.log("Hello");
 
     const response = await cohere.generate({ 
         model: 'large',
@@ -17,10 +16,10 @@ export default async function runCohere() {
         stop_sequences: ["--"], 
         return_likelihoods: 'NONE' 
       }); 
-      console.log(`Prediction: ${response.body.generations[0].text}`);
-
     // const response = await cohere.generate({ prompt: 'Once upon a time in a magical land called' } as any );
     console.log(`Prediction: ${JSON.stringify(response.body.generations)}`);
+
+    return response.body.generations[0].text;
 }
 
 
