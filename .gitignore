@@ -2,3 +2,4 @@
 dist/
 **/**/*.log
 speech-to-text.json
+google-credentials.json

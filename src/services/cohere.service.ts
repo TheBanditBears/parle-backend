@@ -2,7 +2,7 @@ import cohere from "cohere-ai";
 
 
 export default async function runCohere() {
-    cohere.init("{apiKey}");
+    cohere.init(process.env.CO_HERE_API_KEY);
     console.log("Hello");
 
     const response = await cohere.generate({ 
