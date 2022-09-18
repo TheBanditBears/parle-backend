@@ -8,18 +8,26 @@ import cors from "cors";
 
 import speech from "@google-cloud/speech";
 import fs from "fs";
+import path from "path";
+// import linear16 from "linear16";
 
 // Creates a client
-const client = new speech.SpeechClient();
 
 async function main() {
+  const client = new speech.SpeechClient();
+
   // The path to the remote LINEAR16 file
-  const gcsUri = 'gs://cloud-samples-data/speech/brooklyn_bridge.raw';
+  const gcsUri = path.resolve(__dirname, '/Users/nullpointer/code/hackathons/parle-backend/');
+  const audioFile = fs.readFileSync('/Users/nullpointer/code/hackathons/parle-backend/src/resources/test.raw');
+  const audioBytes = audioFile.toString('base64');
+
+  console.log(audioBytes);
 
   // The audio file's encoding, sample rate in hertz, and BCP-47 language code
   const audio = {
-    uri: gcsUri,
+    content: audioBytes,
   };
+
   const config = {
     encoding: 'LINEAR16',
     sampleRateHertz: 16000,
