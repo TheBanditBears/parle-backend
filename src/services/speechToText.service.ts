@@ -14,14 +14,16 @@ export default async function main(audio: string): Promise<string>{
 //   console.log(audioBytes);
 
   // The audio file's encoding, sample rate in hertz, and BCP-47 language code
- 
+
+  const audioFile = fs.readFileSync('/Users/levpollock/Downloads/parle-backend/src/resources/University_Shops_Plaza.flac');
+  const audioBytes = audioFile.toString('base64');
   const request: any = {
     config: {
       languageCode: "en-US",
       enableWordTimeOffsets: true,
     },
     audio: {
-      uri: "gs://cloud-samples-tests/speech/brooklyn.flac",
+       content: audioBytes,
     },
   };
 

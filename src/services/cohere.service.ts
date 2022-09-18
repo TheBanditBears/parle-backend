@@ -4,13 +4,14 @@ import cohere from "cohere-ai";
 export default async function runCohereEngine(prompt: String) {
     cohere.init(process.env.CO_HERE_API_KEY);
 
+    const arr = prompt.split(' ');
     const response = await cohere.generate({ 
-        model: 'large',
+        model: 'small',
         prompt: `--\n${prompt}`,
-        max_tokens: 40, 
-        temperature: 0.5, 
-        k: 0, 
-        p: 1, 
+        max_tokens: (arr.length + 3),
+        temperature: 0.1,
+        k: 1,
+        p: 0.4,
         frequency_penalty: 0, 
         presence_penalty: 0, 
         stop_sequences: ["--"], 
