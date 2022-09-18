@@ -8,9 +8,8 @@ import cors from "cors";
 
 import main from "./services/speechToText.service";
 
-
 (async () => {
-  //await main();
+  await main();
 })();
 
 const app = express();
