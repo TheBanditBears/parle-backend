@@ -14,10 +14,10 @@ export default async function parleScore(req: Request, res: Response, next: Next
     // Convert the audio file speech into text using google speech to text engine
 
     // Feed the text into co here
-    const optimizedResult = await runCohereEngine();
+    const result = await runCohereEngine();
 
     // Compare the results from req body and co here to score the system using the scoring service
 
     // Send the scores using res
-    res.status(200).json({ optimizedResult: optimizedResult });
+    res.status(200).json(result);
 }
